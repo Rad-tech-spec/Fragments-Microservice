@@ -6,22 +6,28 @@
 
 ## Starting and Debugging tools
 
-1. Makes sure there is no errors in a JavaScript code.
+### Using CMD or Ubunto(WSL)
 
-   > `npm run lint`
+- Makes sure there is no errors in a JavaScript code.
 
-2. Starts the server in port localhost:8080.
+  > `npm run lint`
 
-   > `node src/server.js`
+- Starts the server in port **localhost:8080**.
 
-3. Used to execute the defined file without typing its execution command.
+  > `node src/server.js`
 
-   > `npm start`
+- Used to execute the defined file without typing its execution command.
 
-4. Used to run the dev script defined in the project package.json file.
+  > `npm start`
 
-   > `npm run dev`
+- Used to run the dev script defined in the project package.json file.
 
-5. Used to run the debugging script defined in the project launch.js file for a better debugging run the VS code debug tool at the same time.
+  > `npm run dev`
 
-   > `npm run debug`
+- Used to run the debugging script defined in the project launch.js file for a better debugging run the VS code debug tool at the same time.
+
+  > `npm run debug`
+
+- Curl is another tool to run the localhost in WSL, -s silences the usual output to CURL and jq piped pretty-prints the JSON output.
+
+  > `curl -s localhost:8080 | jq`
