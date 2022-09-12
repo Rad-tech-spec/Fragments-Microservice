@@ -12,16 +12,16 @@
 
 2. Starts the server in port localhost:8080.
 
-   > node src/server.js
+   > `node src/server.js`
 
 3. Used to execute the defined file without typing its execution command.
 
-   > npm start
+   > `npm start`
 
 4. Used to run the dev script defined in the project package.json file.
 
-   > npm run dev
+   > `npm run dev`
 
 5. Used to run the debugging script defined in the project launch.js file for a better debugging run the VS code debug tool at the same time.
 
-   > npm run debug
+   > `npm run debug`
