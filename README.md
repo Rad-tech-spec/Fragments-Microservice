@@ -4,9 +4,9 @@
 **Email:** Reshghi@myseneca.ca\
 **Student#:** 123348195
 
-## Starting and Debugging tools
+## Starting and Debugging tools.
 
-### Using CMD or Ubunto(WSL)
+### Using CMD or Ubunto(WSL).
 
 - Makes sure there is no errors in a JavaScript code.
 
@@ -31,3 +31,16 @@
 - `Curl` is another tool to run the localhost in WSL, `-s` silences the usual output to CURL and `jq` piped pretty-prints the JSON output.
 
   > `curl -s localhost:8080 | jq`
+
+## List of installed and in use packages.
+
+1. **ESLint** - Code analysis tool.
+2. **prettier** - Code formatter.
+3. **express** - Back-end we application framework for Node.js.
+4. **npm** - Package manager for JS.
+5. **npm intellisense** - Autocomplete npm modules.
+6. **pino** - Used for structure logging.
+7. **helmet** - Secures express apps by sitting various HTTP headers.
+8. **compression** - Returns the compression middleware.
+9. **stoppable** - Allows the server to exist gracefully.
+10. **nodemon** - Automatically reloads the server.
