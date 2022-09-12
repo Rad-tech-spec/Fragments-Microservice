@@ -8,7 +8,7 @@
 
 1. Makes sure there is no errors in a JavaScript code.
 
-   > npm run lint
+   > `npm run lint`
 
 2. Starts the server in port localhost:8080.
 
