@@ -36,7 +36,7 @@
 
 1. **ESLint** - Code analysis tool.
 2. **prettier** - Code formatter.
-3. **express** - Back-end we application framework for Node.js.
+3. **express** - Back-end application framework for Node.js.
 4. **npm** - Package manager for JS.
 5. **npm intellisense** - Autocomplete npm modules.
 6. **pino** - Used for structure logging.
