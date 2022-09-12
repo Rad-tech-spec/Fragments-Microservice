@@ -28,6 +28,6 @@
 
   > `npm run debug`
 
-- Curl is another tool to run the localhost in WSL, -s silences the usual output to CURL and jq piped pretty-prints the JSON output.
+- `Curl` is another tool to run the localhost in WSL, `-s` silences the usual output to CURL and `jq` piped pretty-prints the JSON output.
 
   > `curl -s localhost:8080 | jq`
