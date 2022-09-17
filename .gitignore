@@ -1,2 +1,5 @@
 # Huge node module that takes some space and its not needed.
 node_modules
+
+# Don't include .env, sensitive information
+.env
