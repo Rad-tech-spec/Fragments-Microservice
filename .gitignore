@@ -3,3 +3,5 @@ node_modules
 
 # Don't include .env, sensitive information
 .env
+
+coverage
