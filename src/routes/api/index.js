@@ -1,5 +1,5 @@
 // src/routes/api/index.js
-
+const rawBody = require('./post').rawBody;
 /**
  * The main entry-point for the v1 version of the fragments API.
  */
@@ -13,5 +13,6 @@ const router = express.Router();
 router.get('/fragments', require('./get'));
 
 // Other routes will go here later on...
+router.post('/fragments', rawBody(), require('./post'));
 
 module.exports = router;
