@@ -1,6 +1,5 @@
 /* eslint-disable object-curly-spacing */
 // src/routes/index.js
-
 const express = require('express');
 const { authenticate } = require('../authorization');
 
