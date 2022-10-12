@@ -3,7 +3,7 @@ const { createSuccessResponse, createErrorResponse } = require('../../response')
 const Fragment = require('../../model/fragment').Fragment;
 const logger = require('../../logger');
 const express = require('express');
-const contentType = require('Content-Type');
+const contentType = require('content-type');
 require('dotenv').config();
 // eslint-disable-next-line valid-jsdoc
 
