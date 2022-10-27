@@ -42,8 +42,9 @@ COPY --from=dependencies /app /app
 # Copy our source code
 COPY . .
 
-# Add Curl 
-RUN apk add curl 
+# Update apk then add curl 
+RUN apk update && \ 
+    apk add curl
 
 # Start the container by running our server
 CMD npm start
@@ -51,7 +52,7 @@ CMD npm start
 # We run our service on port 8080
 EXPOSE 8080
 
-# Run a health check 
+# Run a health check (Keep updating the AWS EC2 link everytime)
 HEALTHCHECK --interval=15s --timeout=30s --start-period=10s --retries=3 \
-  CMD curl --fail ec2-34-201-41-102.compute-1.amazonaws.com:8080 || exit 1
+  CMD curl --fail ec2-35-171-9-230.compute-1.amazonaws.com:8080 || exit 1
 
