@@ -44,15 +44,15 @@ COPY . .
 
 # Update apk then add curl 
 RUN apk update && \ 
-    apk add curl
+    apk add --no-cache curl=7.83.1
 
 # Start the container by running our server
-CMD npm start
+CMD ["npm", "start"]
 
 # We run our service on port 8080
 EXPOSE 8080
 
 # Run a health check (Keep updating the AWS EC2 link everytime)
 HEALTHCHECK --interval=15s --timeout=30s --start-period=10s --retries=3 \
-  CMD curl --fail ec2-35-171-9-230.compute-1.amazonaws.com:8080 || exit 1
+  CMD curl --fail ec2-54-196-8-130.compute-1.amazonaws.com:8080 || exit 1
 
