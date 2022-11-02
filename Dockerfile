@@ -44,7 +44,7 @@ COPY . .
 
 # Update apk then add curl 
 RUN apk update && \ 
-    apk add --no-cache curl=7.83.1
+apk --no-cache add curl=7.83.1-r4
 
 # Start the container by running our server
 CMD ["npm", "start"]
