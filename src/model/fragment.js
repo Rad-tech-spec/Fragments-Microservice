@@ -16,13 +16,10 @@ const {
 
 const validTypes = [
   `text/plain`,
-  /*
-   Currently, only text/plain is supported. Others will be added later.
-
   `text/markdown`,
   `text/html`,
   `application/json`,
-  `image/png`,
+  /* `image/png`,
   `image/jpeg`,
   `image/webp`,
   `image/gif`,
@@ -33,14 +30,15 @@ class Fragment {
   constructor({ id, ownerId, created, updated, type, size = 0 }) {
     // TODO
     if (ownerId == undefined && type == undefined)
-      throw 'ownerIda and type are required to create a new class!';
+      throw 'ownerId and type are required to create a new class!';
     else if (ownerId == undefined || type == undefined)
-      throw 'ownerIda and type are required to create a new class!';
+      throw 'ownerId and type are required to create a new class!';
     else this.ownerId = ownerId;
 
-    for (let i = 0; i < validTypes.length; i++)
-      if (type.includes(validTypes[i])) this.type = type;
-      else throw 'Invalid type is passed!';
+    if (this.isSupportedType(type)) {
+      for (let i = 0; i < validTypes.length; i++)
+        if (type.includes(validTypes[i])) this.type = type;
+    } else throw 'Invalid type has been passed!';
 
     if (typeof size != 'number' || size < 0) throw 'size must me a number and greater then -1!';
     else this.size = size;
@@ -175,9 +173,17 @@ class Fragment {
    */
   static isSupportedType(value) {
     // TODO
-    for (let i = 0; i < validTypes.length; i++)
+    for (var i = 0; i < validTypes.length; i++) {
       if (value.includes(validTypes[i])) return true;
-      else return false;
+    }
+    return false;
+  }
+
+  isSupportedType(value) {
+    for (var i = 0; i < validTypes.length; i++) {
+      if (value.includes(validTypes[i])) return true;
+    }
+    return false;
   }
 }
 

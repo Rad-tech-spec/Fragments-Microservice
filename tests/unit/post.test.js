@@ -17,7 +17,38 @@ describe('POST /v1/fragments', () => {
       .auth('user1@email.com', 'password1')
       .set('Content-Type', 'text/plain')
       .send('This is a fragment');
-    console.log(res);
+    expect(res.statusCode).toBe(201);
+    expect(res.body.status).toBe('ok');
+  });
+
+  // Using a valid username/password pair should give a success result with a .fragments array
+  test('authenticated users get a fragments array (md)', async () => {
+    const res = await request(app)
+      .post('/v1/fragments')
+      .auth('user1@email.com', 'password1')
+      .set('Content-Type', 'text/markdown')
+      .send('# This is a fragment');
+    expect(res.statusCode).toBe(201);
+    expect(res.body.status).toBe('ok');
+  });
+
+  // Using a valid username/password pair should give a success result with a .fragments array
+  test('authenticated users get a fragments array (html)', async () => {
+    const res = await request(app)
+      .post('/v1/fragments')
+      .auth('user1@email.com', 'password1')
+      .set('Content-Type', 'text/html')
+      .send('<h1>This is a fragment<h1>');
+    expect(res.statusCode).toBe(201);
+    expect(res.body.status).toBe('ok');
+  });
+
+  test('authenticated users get a fragments array (JSON)', async () => {
+    const res = await request(app)
+      .post('/v1/fragments')
+      .auth('user1@email.com', 'password1')
+      .set('Content-Type', 'application/json')
+      .send('{name: Rad, career: developer}');
     expect(res.statusCode).toBe(201);
     expect(res.body.status).toBe('ok');
   });
