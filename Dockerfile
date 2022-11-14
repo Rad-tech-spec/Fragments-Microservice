@@ -8,9 +8,6 @@ FROM node:16.15.1-bullseye@sha256:294ed7085d137d4f16fd97c0e1518f1d0386dd7fda7c48
 LABEL miantainer="Rad Eshghi <Reshghi@myseneca.ca>" 
 LABEL description="Fragments node.js microservice"
 
-# We'll provide default values, but they can be overridden at 
-#runtime using the --env, -e or --env-file flags
-
 # We default to use port 8080 in our service 
 # Reduce npm spam when installing within Docker https://docs.npmjs.com/cli/v8/using-npm/config#loglevel
 # Disable colour when run inside Docker https://docs.npmjs.com/cli/v8/using-npm/config#color
