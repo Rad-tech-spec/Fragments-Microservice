@@ -51,5 +51,5 @@ EXPOSE 8080
 
 # Run a health check (Keep updating the AWS EC2 link everytime)
 HEALTHCHECK --interval=15s --timeout=30s --start-period=10s --retries=3 \
-  CMD curl --fail ec2-44-202-86-146.compute-1.amazonaws.com:8080 || exit 1
+  CMD curl --fail ec2-54-237-226-49.compute-1.amazonaws.com:8080 || exit 1
 
