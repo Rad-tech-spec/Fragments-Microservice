@@ -1,7 +1,7 @@
 const Fragment = require('../../model/fragment').Fragment;
 var markdown = require('markdown').markdown;
 
-const { createSuccessResponse, createErrorResponse } = require('../../response');
+const { createErrorResponse } = require('../../response');
 
 module.exports = async (req, res) => {
   // TODO: this is just a placeholder to get something working.
@@ -19,9 +19,9 @@ module.exports = async (req, res) => {
 
   var ownerId = require('crypto').createHash('sha256').update(req.user).digest('hex');
   var metadata = await Fragment.byId(ownerId, params);
-  console.log(params);
+  //console.log(params);
   const type = metadata.type;
-  console.log(metadata);
+  //console.log(metadata);
 
   if (!metadata) {
     res.status(404).json(
@@ -34,6 +34,7 @@ module.exports = async (req, res) => {
 
   metadata = await metadata.getData();
   metadata = metadata.toString();
+  console.log('Line 38: ' + metadata);
 
   if (extension) {
     if (ext == 'html' && type == 'text/plain') {
@@ -48,11 +49,7 @@ module.exports = async (req, res) => {
       res.send(htmlResult);
     }
   } else {
-    res.status(200).json(
-      createSuccessResponse({
-        status: 'ok',
-        data: metadata,
-      })
-    );
+    res.setHeader('Content-Type', type);
+    res.send(metadata);
   }
 };
