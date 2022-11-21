@@ -53,7 +53,6 @@ describe('GET /v1/fragments', () => {
       .get('/v1/fragments/' + tmp[0])
       .auth('user1@email.com', 'password1');
     expect(res.statusCode).toBe(200);
-    expect(res.body.status).toBe('ok');
   });
 
   test('authenticated users retrieve fragments by id info', async () => {
