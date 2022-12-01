@@ -16,6 +16,9 @@ services:
       - HTPASSWD_FILE=tests/.htpasswd
       # Use the LOG_LEVEL set in the host environment, or default to info
       - LOG_LEVEL=${LOG_LEVEL:-info}
+      - AWS_ACCESS_KEY_ID=ASIAS4WQZANN2SWXFLM4
+      - AWS_SECRET_ACCESS_KEY=pgJ0WdJN+g094d5yv8eWm4ATHCBqOlTYYut7fbLh
+      - AWS_SESSION_TOKEN=FwoGZXIvYXdzEJH//////////wEaDEM6MsFI5JUrxg8s6CK8AfI5X4V5eEous/2RA98ryEDXcUloSq4HHWb7+gzTfnE7YdYulUVaEEVr/lIVI2iAakmpHw3luEGDEu4T+uHsYw+W958LpxuHqIRMT0yCI4CBdnX5VtsyQj2TyMpp4l7WHU6p8zuVACV7zlJKcUMB9hFayIO4SN9M3BccpHzyOEXudSRIslr1dMb6UMWCQVN+ME9Wu/3u4VVRECgJzCAz7MAPUv3hpWyrh25d5fEL3Eu4y7hxFjDs1fHb4T8LKNz1pJwGMi07F9CQdg3/mXXJRi9xgF4i+/N4tH3+wOQhW2GLkBrPDWqNX1Z7zClotOj2J5Y=
       - AWS_REGION=us-east-1
       # Use the LocalStack endpoint vs. AWS for S3 AWS SDK clients.
       # NOTE: we use Docker's internal network to the localstack container

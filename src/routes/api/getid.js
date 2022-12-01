@@ -18,7 +18,13 @@ module.exports = async (req, res) => {
   }
 
   var ownerId = require('crypto').createHash('sha256').update(req.user).digest('hex');
-  var metadata = await Fragment.byId(ownerId, params);
+
+  try {
+    var metadata = await Fragment.byId(ownerId, params);
+  } catch (err) {
+    throw new Error('Id does not exist!');
+  }
+
   //console.log(params);
   const type = metadata.type;
   //console.log(metadata);
@@ -34,7 +40,7 @@ module.exports = async (req, res) => {
 
   metadata = await metadata.getData();
   metadata = metadata.toString();
-  console.log('Line 38: ' + metadata);
+  //console.log('Line 38: ' + metadata);
 
   if (extension) {
     if (ext == 'html' && type == 'text/plain') {

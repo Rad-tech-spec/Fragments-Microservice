@@ -6,6 +6,7 @@ const { authenticate } = require('../authorization');
 // version and author from package.json
 const { version, author } = require('../../package.json');
 const { createSuccessResponse } = require('../response');
+const { hostname } = require('os');
 
 // Create a router that we can use to mount our API
 // eslint-disable-next-line new-cap
@@ -22,12 +23,15 @@ router.use(`/v1`, authenticate(), require('./api'));
  * we'll respond with a 200 OK.  If not, the server isn't healthy.
  */
 router.get('/', (req, res) => {
-  // Client's shouldn't cache this response (always request it fresh)
   res.setHeader('Cache-Control', 'no-cache');
-  const data = { author, version, githubUrl: 'https://github.com/Rad-tech-spec/fragments' };
-
-  // Send a 200 'OK' response
-  res.status(200).json(createSuccessResponse(data));
+  res.status(200).json(
+    createSuccessResponse({
+      author: author,
+      githubUrl: 'https://github.com/your-github-account-username/fragments',
+      version,
+      // Include the hostname in the response
+      hostname: hostname(),
+    })
+  );
 });
-
 module.exports = router;
