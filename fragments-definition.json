@@ -25,7 +25,28 @@
       "command": [],
       "linuxParameters": null,
       "cpu": 256,
-      "environment": [],
+      "environment": [
+        {
+          "name": "API_URL",
+          "value": "localhost:8080 "
+        },
+        {
+          "name": "AWS_COGNITO_CLIENT_ID",
+          "value": "3mr1qoe43c8i43c4n1huuf124r"
+        },
+        {
+          "name": "AWS_COGNITO_POOL_ID",
+          "value": "us-east-1_ytq8uHPdp"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-1"
+        },
+        {
+          "name": "PORT",
+          "value": "8080"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
@@ -54,14 +75,14 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "Fragments"
+      "name": "fragments"
     }
   ],
   "placementConstraints": [],
   "memory": "512",
   "taskRoleArn": null,
   "compatibilities": ["EC2", "FARGATE"],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:199080084315:task-definition/fragments-task:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:199080084315:task-definition/fragments-task:2",
   "family": "fragments-task",
   "requiresAttributes": [
     {
@@ -106,7 +127,7 @@
   "networkMode": "awsvpc",
   "runtimePlatform": null,
   "cpu": "256",
-  "revision": 1,
+  "revision": 2,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
