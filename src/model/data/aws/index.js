@@ -4,6 +4,12 @@ const s3Client = require('./s3Client');
 const { PutObjectCommand, GetObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
 const logger = require('../../../logger');
 
+const DEF_DELAY = 1000;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms || DEF_DELAY));
+}
+
 // Create two in-memory databases: one for fragment metadata and the other for raw data
 //const data = new MemoryDB();
 const metadata = new MemoryDB();
@@ -33,8 +39,10 @@ async function writeFragmentData(ownerId, id, data) {
   const command = new PutObjectCommand(params);
 
   try {
+    await sleep(100);
     // Use our client to send the command
     await s3Client.send(command);
+    await sleep(100);
   } catch (err) {
     // If anything goes wrong, log enough info that we can debug
     const { Bucket, Key } = params;
@@ -80,11 +88,12 @@ async function readFragmentData(ownerId, id) {
   try {
     // Get the object from the Amazon S3 bucket. It is returned as a ReadableStream.
     const data = await s3Client.send(command);
-    // Convert the ReadableStream to a Buffer
     return streamToBuffer(data.Body);
   } catch (err) {
     const { Bucket, Key } = params;
     logger.error({ err, Bucket, Key }, 'Error streaming fragment data from S3');
+    //console.warn(err.message + ' HERE________________________________');
+    //if (err.message) Promise.resolve(undefined);
     throw new Error('unable to read fragment data');
   }
 }
@@ -107,13 +116,16 @@ async function listFragments(ownerId, expand = false) {
 async function deleteFragment(ownerId, id) {
   const params = {
     Bucket: process.env.AWS_S3_BUCKET_NAME,
-    key: `${ownerId}/${id}`,
+    Key: `${ownerId}/${id}`,
   };
 
   const command = new DeleteObjectCommand(params);
 
   try {
+    await sleep(100);
     await s3Client.send(command);
+    await sleep(100);
+    return 'Deleted';
   } catch (err) {
     const { Bucket, Key } = params;
     logger.error({ err, Bucket, Key }, 'Error deleting fragment data from S3');

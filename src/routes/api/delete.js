@@ -14,19 +14,26 @@ module.exports = async (req, res) => {
 
   deleteData = await Fragment.delete(ownerID, id);
 
-  if (!deleteData) {
+  if (deleteData == undefined) {
     res.status(404).json(
       createErrorResponse({
         status: 404,
         err: 'Delete with given id does not exist',
       })
     );
+  } else if (deleteData != 'Deleted') {
+    res.status(404).json(
+      createErrorResponse({
+        status: 404,
+        err: 'Delete with given id does not exist',
+      })
+    );
+  } else {
+    res.status(200).json(
+      createSuccessResponse({
+        status: 'ok',
+        fragments: 'Deleted Fragment id: ' + id,
+      })
+    );
   }
-
-  res.status(200).json(
-    createSuccessResponse({
-      status: 'ok',
-      fragments: 'Deleted Fragment id: ' + id,
-    })
-  );
 };
