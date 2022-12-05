@@ -80,8 +80,6 @@ jobs:
   integration-tests:
     name: Integration Tests
     runs-on: ubuntu-latest
-    script:
-      - chmod +x ./scripts/local-aws-setup.sh
     steps:
       - name: Check out code
         uses: actions/checkout@v3
