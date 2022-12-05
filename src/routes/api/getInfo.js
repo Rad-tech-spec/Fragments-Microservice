@@ -9,19 +9,27 @@ module.exports = async (req, res) => {
   var metadata = await Fragment.byId(ownerId, req.params.id);
 
   console.log('This is a test: ' + metadata);
-  if (!metadata) {
+
+  if (metadata == false) {
+    res.status(404).json(
+      createErrorResponse({
+        status: 404,
+        err: 'Metadata with does not exist',
+      })
+    );
+  } else if (!metadata) {
     res.status(404).json(
       createErrorResponse({
         status: 404,
         err: 'Metadata with given id does not exist',
       })
     );
+  } else {
+    res.status(200).json(
+      createSuccessResponse({
+        status: 'ok',
+        data: metadata,
+      })
+    );
   }
-
-  res.status(200).json(
-    createSuccessResponse({
-      status: 'ok',
-      data: metadata,
-    })
-  );
 };

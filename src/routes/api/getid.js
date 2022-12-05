@@ -1,7 +1,7 @@
 const Fragment = require('../../model/fragment').Fragment;
 var markdown = require('markdown').markdown;
 
-const { createErrorResponse } = require('../../response');
+//const { createErrorResponse } = require('../../response');
 
 module.exports = async (req, res) => {
   // TODO: this is just a placeholder to get something working.
@@ -24,23 +24,10 @@ module.exports = async (req, res) => {
   } catch (err) {
     throw new Error('Id does not exist!');
   }
-
-  //console.log(params);
   const type = metadata.type;
-  //console.log(metadata);
-
-  if (!metadata) {
-    res.status(404).json(
-      createErrorResponse({
-        status: 404,
-        err: 'Metadata with given id does not exist',
-      })
-    );
-  }
 
   metadata = await metadata.getData();
   metadata = metadata.toString();
-  //console.log('Line 38: ' + metadata);
 
   if (extension) {
     if (ext == 'html' && type == 'text/plain') {

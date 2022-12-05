@@ -73,10 +73,12 @@ class Fragment {
    */
   static async byId(ownerId, id) {
     // TODO
-
     var value = await readFragment(ownerId, id);
     if (value == undefined) throw Error();
-    return Promise.resolve(value);
+    else if (value == false) {
+      Promise.resolve(false);
+      return value;
+    } else return new Fragment(value);
   }
 
   /**
