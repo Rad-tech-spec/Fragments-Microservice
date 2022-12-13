@@ -118,13 +118,8 @@ class Fragment {
   async getData() {
     // TODO
     var obj = await readFragmentData(this.ownerId, this.id);
-    //console.log(obj + '  HERE2++++++++++++++++++++++++++++++');
-    // if (obj == undefined) {
-    // return Promise.resolve(undefined);
-    //} else {
     const value = Buffer.from(obj);
     return value;
-    //}
   }
 
   /**

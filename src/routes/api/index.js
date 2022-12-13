@@ -1,5 +1,6 @@
 // src/routes/api/index.js
 const rawBody = require('./post').rawBody;
+const rawBodyPut = require('./put').rawBodyPUT;
 /**
  * The main entry-point for the v1 version of the fragments API.
  */
@@ -18,5 +19,6 @@ router.get('/fragments/:id/info', require('./getInfo'));
 // Other routes will go here later on...
 router.post('/fragments', rawBody(), require('./post'));
 router.delete('/fragments/:id', require('./delete'));
+router.put('/fragments/:id', rawBodyPut(), require('./put'));
 
 module.exports = router;

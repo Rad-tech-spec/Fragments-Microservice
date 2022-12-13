@@ -51,5 +51,5 @@ EXPOSE 8080
 
 # Run a health check (Keep updating the AWS EC2 link everytime)
 HEALTHCHECK --interval=15s --timeout=30s --start-period=10s --retries=3 \
-  CMD curl --fail localhost:8080 || exit 1
+  CMD curl --fail http://ec2co-ecsel-104cumwhi93ml-581915465.us-east-1.elb.amazonaws.com:8080 || exit 1
 
