@@ -1,12 +1,19 @@
-# Fragments
+# Details
+We were asked to develop a new cloud-based microservice for a fictional Canadian company. This company specializes in producing automotive parts and has been working hard for the past three years to connect, digitize, and automate all of its internal systems.
 
-**Arthur:** Rad Eshghi\
+As the new system has been built, the company has identified a missing capability: many sub-systems need to be able to work with small fragments of text or images. These are smaller than a traditional "document" and use a large number of different formats. For example:
+
+- IoT devices on the manufacturing floor produce a variety of reports (text) that need to be stored and retrieved. Some use plain text, others CSV files, and others JSON. 
+- Factory workers use a variety of existing mobile apps to write short status updates and reports, which need to be saved as JSON, Markdown, plain Text, and sometimes HTML.
+- Automated cameras on assembly lines take regular images of damaged parts, which need to be stored for audit purposes.
+
+The company invested in a highly scalable service for working with these so-called fragments of text and images. This service needs to connect seamlessly with the rest of the existing systems (e.g., use existing authorization, and work over HTTP). It also needs to be deployed to AWS, which is the cloud provider used for the rest of the company's systems.
 
 ## Starting and Debugging tools.
 
 ### Using CMD or Ubunto(WSL).
 
-- Makes sure there is no errors in a JavaScript code.
+- Makes sure there are no errors in a JavaScript code.
 
   > `npm run lint`
 
@@ -30,7 +37,7 @@
 
   > `curl -s localhost:8080 | jq`
 
-## List of installed and in use packages.
+## List of installed and in-use packages.
 
 1. **ESLint** - Code analysis tool.
 2. **prettier** - Code formatter.
@@ -38,10 +45,14 @@
 4. **npm** - Package manager for JS.
 5. **npm intellisense** - Autocomplete npm modules.
 6. **pino** - Used for structure logging.
-7. **helmet** - Secures express apps by sitting various HTTP headers.
+7. **helmet** - Secures express apps by setting various HTTP headers.
 8. **compression** - Returns the compression middleware.
 9. **stoppable** - Allows the server to exist gracefully.
 10. **nodemon** - Automatically reloads the server.
 
+
 ## Fragments-UI 
 https://github.com/Rad-tech-spec/fragments-ui
+
+**Arthur:** Rad Eshghi
+
