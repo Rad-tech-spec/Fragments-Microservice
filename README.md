@@ -1,8 +1,6 @@
 # Fragments
 
 **Arthur:** Rad Eshghi\
-**Email:** Reshghi@myseneca.ca\
-**Student#:** 123348195
 
 ## Starting and Debugging tools.
 
