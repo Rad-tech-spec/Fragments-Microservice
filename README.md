@@ -1,58 +1,134 @@
-# Details
-We were asked to develop a new cloud-based microservice for a fictional Canadian company. This company specializes in producing automotive parts and has been working hard for the past three years to connect, digitize, and automate all of its internal systems.
+# Fragments Microservice
 
-As the new system has been built, the company has identified a missing capability: many sub-systems need to be able to work with small fragments of text or images. These are smaller than a traditional "document" and use a large number of different formats. For example:
+A scalable cloud-based microservice for managing and processing text and image fragments for an automotive parts manufacturing company.
 
-- IoT devices on the manufacturing floor produce a variety of reports (text) that need to be stored and retrieved. Some use plain text, others CSV files, and others JSON. 
-- Factory workers use a variety of existing mobile apps to write short status updates and reports, which need to be saved as JSON, Markdown, plain Text, and sometimes HTML.
-- Automated cameras on assembly lines take regular images of damaged parts, which need to be stored for audit purposes.
+## Overview
 
-The company invested in a highly scalable service for working with these so-called fragments of text and images. This service needs to connect seamlessly with the rest of the existing systems (e.g., use existing authorization, and work over HTTP). It also needs to be deployed to AWS, which is the cloud provider used for the rest of the company's systems.
+The Fragments Microservice is a Node.js-based backend service designed to store, retrieve, and manage small fragments of text and images across a distributed system. This service supports multiple data formats and seamlessly integrates with existing enterprise systems.
 
-## Starting and Debugging tools.
+### Key Capabilities
 
-### Using CMD or Ubunto(WSL).
+- **Multi-Format Support**: Store and retrieve text fragments in plain text, CSV, JSON, Markdown, and HTML formats
+- **Image Management**: Securely store and manage image fragments from automated quality control systems
+- **Scalable Architecture**: Built to handle high-volume requests from IoT devices and mobile applications
+- **Audit Trail**: Comprehensive logging for compliance and audit purposes
+- **Enterprise Integration**: REST API designed for seamless integration with existing microservices
 
-- Makes sure there are no errors in a JavaScript code.
+### Use Cases
 
-  > `npm run lint`
+- **IoT Manufacturing Reports**: IoT devices on the manufacturing floor produce various text reports (plain text, CSV, JSON) that need secure storage and retrieval
+- **Mobile Applications**: Factory workers use mobile apps to create status updates and reports in multiple formats (JSON, Markdown, Plain Text, HTML)
+- **Quality Assurance**: Automated assembly line cameras capture images of damaged parts for audit and analysis
+- **System Integration**: Connects with other microservices in the enterprise ecosystem
 
-- Starts the server in port **localhost:8080**.
+## Quick Start
 
-  > `node src/server.js`
+### Prerequisites
 
-- Used to execute the defined file without typing its execution command.
+- Node.js (v14 or higher)
+- npm
 
-  > `npm start`
+### Installation
 
-- Used to run the dev script defined in the project package.json file.
+```bash
+# Install dependencies
+npm install
+```
 
-  > `npm run dev`
+### Running the Server
 
-- Used to run the debugging script defined in the project launch.js file for a better debugging run the VS code debug tool at the same time.
+```bash
+# Start the server (runs on localhost:8080)
+npm start
 
-  > `npm run debug`
+# Or run with development auto-reload
+npm run dev
 
-- `Curl` is another tool to run the localhost in WSL, `-s` silences the usual output to CURL and `jq` piped pretty-prints the JSON output.
+# Or run with debugging enabled (use with VS Code debugger)
+npm run debug
+```
 
-  > `curl -s localhost:8080 | jq`
+### Testing & Validation
 
-## List of installed and in-use packages.
+```bash
+# Run linter to check code quality
+npm run lint
 
-1. **ESLint** - Code analysis tool.
-2. **prettier** - Code formatter.
-3. **express** - Back-end application framework for Node.js.
-4. **npm** - Package manager for JS.
-5. **npm intellisense** - Autocomplete npm modules.
-6. **pino** - Used for structure logging.
-7. **helmet** - Secures express apps by setting various HTTP headers.
-8. **compression** - Returns the compression middleware.
-9. **stoppable** - Allows the server to exist gracefully.
-10. **nodemon** - Automatically reloads the server.
+# Format code with prettier
+npm run format
 
+# Direct server start
+node src/server.js
 
-## Fragments-UI 
-https://github.com/Rad-tech-spec/fragments-ui
+# Test with curl (requires jq for JSON formatting)
+curl -s localhost:8080 | jq
+```
 
-**Arthur:** Rad Eshghi
+## Architecture
 
+### Technology Stack
+
+| Component | Technology |
+|-----------|------------|
+| Runtime | Node.js |
+| Framework | Express.js |
+| Language | JavaScript (85.9%) |
+| Testing | Hurl (9.4%) |
+| Scripting | Shell (2.4%) |
+| Deployment | Docker (2.3%) |
+
+### Key Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| **express** | Web application framework for Node.js |
+| **helmet** | Security middleware (HTTP headers) |
+| **compression** | Response compression middleware |
+| **pino** | Structured logging |
+| **nodemon** | Development server auto-reload |
+| **stoppable** | Graceful server shutdown |
+| **ESLint** | Code quality analysis |
+| **prettier** | Code formatting |
+| **npm-intellisense** | npm module autocomplete (IDE extension) |
+
+## Development
+
+### Code Quality
+
+```bash
+# Check for linting errors
+npm run lint
+
+# Format code automatically
+npm run prettier
+```
+
+### Debugging
+
+VS Code debugging is supported through the included launch configuration:
+
+```bash
+npm run debug
+```
+
+Then attach the VS Code debugger to begin debugging.
+
+## API Documentation
+
+The Fragments Microservice provides a REST API for managing fragment resources. Detailed API documentation is available in the repository.
+
+## Related Projects
+
+- [Fragments UI](https://github.com/Rad-tech-spec/fragments-ui) - Frontend application for the Fragments Microservice
+
+## Contributing
+
+For contribution guidelines and standards, please refer to the project documentation.
+
+## Author
+
+**Rad Eshghi**
+
+## License
+
+Please see the LICENSE file for licensing information.
